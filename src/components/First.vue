@@ -1,5 +1,5 @@
 <template>
-  <div class="person">
+  <div class="First">
     <!-- <h3>A girl that I would not forget in my life</h3>
     <h4>名字: {{ name }}</h4>
     <h4>年龄: {{ age }}</h4>
@@ -16,11 +16,12 @@
     <ul>
       <li v-for="fruit in fruits" :key="fruit.id">{{ fruit.name }}</li>
     </ul>
-    <button @click="changeName">修改第一项名字</button>
+    <button @click="changeFirstItem">修改第一项名字</button>
+    <button @click="changeFruits">修改名单</button>
   </div>
 </template>
 
-<script setup lang="ts" name="Person">
+<script setup lang="ts" name="First">
 import { reactive, ref } from "vue";
 // ref可以定义基本类型和对象类型的响应式数据
 //reactive只能定义对象类型的响应式数据
@@ -37,8 +38,17 @@ let fruits = reactive([
   { id: "002", name: "苹果" },
   { id: "003", name: "梨" },
 ]);
-function changeName() {
+function changeFirstItem() {
   fruits[0].name = "橙子";
+}
+function changeFruits() {
+  let newFruits = [
+    { id: "001", name: "西瓜" },
+    { id: "002", name: "草莓" },
+    { id: "003", name: "芒果" },
+  ];
+  // reactive定义的响应式对象不能直接改为新对象，可以用Object.assign转化
+  Object.assign(fruits, newFruits);
 }
 
 // import { ref } from "vue";
@@ -61,7 +71,7 @@ function changeName() {
 </script>
 
 <style>
-.person {
+.First {
   background-color: rgb(250, 143, 81);
   box-shadow: 0 0 20px;
   border-radius: 15px;
@@ -77,5 +87,3 @@ function changeName() {
   }
 }
 </style>
-
-<!-- https://www.bilibili.com/video/BV1Za4y1r7KE?p=14&spm_id_from=pageDriver&vd_source=8af54abb3c22a33227de944aca702d68 P13看完 -->

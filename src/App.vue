@@ -1,13 +1,19 @@
 <template>
-  <Person />
+  <!-- <First /> -->
+  <!-- <Second /> -->
+  <Third />
 </template>
 
 <script lang="ts">
-import Person from "./components/Person.vue";
+// import First from "./components/First.vue";
+// import Second from "./components/Second.vue";
+import Third from "./components/Third.vue";
 export default {
   name: "App",
   components: {
-    Person,
+    // First,
+    // Second,
+    Third,
   },
 };
 </script>
