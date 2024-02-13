@@ -10,11 +10,14 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    vueSetupExtend()
+    vueSetupExtend(),
+
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
+    },
+
+  },
+
 })
