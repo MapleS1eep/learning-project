@@ -7,31 +7,38 @@
   <!-- <Props list="personList" /> -->
   <!-- <Hook/> -->
   <div class="app">
-    <h2 class="title">标题区</h2>
-    <!-- 导航区 -->
-    <div class="navigation">
-      <ul>
-        <li>
-          <RouterLink to="/home" active-class="active">首页</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/news" active-class="active">新闻</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/about" active-class="active">关于</RouterLink>
-        </li>
-      </ul>
+    <h1 class="title">Vue3组件间通信</h1>
+    <hr>
+    <div class="main">
+      <div class="nav">
+        <router-link active-class="active" class="list-group-item" to="/props">1. props</router-link>
+        <router-link active-class="active" class="list-group-item" to="/event">2. 自定义事件</router-link>
+        <router-link active-class="active" class="list-group-item" to="/mitt">3. mitt</router-link>
+        <router-link active-class="active" class="list-group-item" to="/model">4. v-model</router-link>
+        <router-link active-class="active" class="list-group-item" to="/attrs">5. $attrs</router-link>
+        <router-link active-class="active" class="list-group-item" to="/ref-parent">6. $refs和$parent</router-link>
+        <router-link active-class="active" class="list-group-item" to="/provide-inject">7. provide和inject</router-link>
+        <router-link active-class="active" class="list-group-item" to="/pinia">8. pinia</router-link>
+        <router-link active-class="active" class="list-group-item" to="/slot">9. slot</router-link>
+      </div>
+      <div class="content">
+        <div class="panel-body">
+          <!-- 展示区占位 -->
+          <router-view></router-view>
+        </div>
+      </div>
+    </div>
 
-    </div>
-    <!-- 展示区 -->
-    <div class="main-content">
-      <RouterView></RouterView>
-    </div>
+    <!-- <Count /> -->
+    <!-- <LoveTalk /> -->
   </div>
 </template>
 
 <script lang="ts" setup name="App">
 import { RouterView, RouterLink } from 'vue-router'
+import Header from './components/Header.vue'
+import Count from './components/Count.vue'
+import LoveTalk from './components/LoveTalk.vue'
 // import First from "./components/First.vue";
 // import Second from "./components/Second.vue";
 // import Third from "./components/Third.vue";
@@ -64,59 +71,41 @@ import { RouterView, RouterLink } from 'vue-router'
 
 </script>
 
-<style>
+<style scoped>
 .app {
   padding: 24px;
   height: 100vh;
   width: 100vw;
-  background-color: #a3a3a3;
 }
 
 .title {
-  display: flex;
-  justify-content: center;
-  background-color: #eee;
-  color: red;
-  padding: 5px;
-}
-
-.navigation {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-
-}
-
-ul {
-  position: relative;
-  display: flex;
-  padding: 0;
-}
-
-ul li {
-  margin-right: 15px;
-  list-style: none;
-}
-
-ul li a {
-  background-color: skyblue;
-  padding: 10px 15px;
-  width: 120px;
-  line-height: 40px;
   text-align: center;
-  color: white;
+}
+
+.main {
+  display: flex;
+}
+
+.main .nav {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+.main .nav .list-group-item {
   text-decoration: none;
-  border-radius: 5px;
+  outline: none;
+  color: #000;
+  border: 1px solid #ddd;
+  padding: 10px;
 }
 
-ul li .active {
-  color: skyblue;
-  background-color: #fff;
+.active {
+  background-color: #32F8BB;
 }
 
-.main-content {
-  border: 3px solid orange;
-  border-radius: 8px;
-  height: 50%;
+.main .content {
+  width: 100%;
+  margin: 10px;
 }
 </style>
