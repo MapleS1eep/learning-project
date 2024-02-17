@@ -1,21 +1,27 @@
 <template>
   <div class="father">
     <h3>父组件</h3>
+    <h4>用户名：{{ username }}</h4>
+    <h4>密  码：{{ password }}</h4>
     <!-- v-model用在html标签上 -->
-    <!-- <input type="text" v-model="userName"> -->
+    <!-- <input type="text" v-model="username"> -->
     <!-- v-model的底层原理如下 -->
-    <!-- <input type="text" :value="userName" @input="userName = (<HTMLInputElement>$event.target).value"> -->
+    <!-- <input type="text" :value="username" @input="username = (<HTMLInputElement>$event.target).value"> -->
 
     <!-- v-model用在组件标签上 -->
-    <MyInput v-model="userName"/>
-    <!-- <MyInput :model-value="userName" @update:model-value="userName = $event" /> -->
+    <!-- <MyInput v-model="username" /> -->
+    <!-- <MyInput :model-value="username" @update:model-value="username = $event" /> -->
+
+    <!-- 修改modelValue -->
+    <MyInput v-model:uname="username" v-model:pwd="password" />
   </div>
 </template>
 
 <script setup lang="ts" name="Father">
 import MyInput from "./MyInput.vue";
 import { ref } from "vue";
-let userName = ref('Amy')
+let username = ref('Amy')
+let password = ref('123456')
 </script>
 
 <style scoped>

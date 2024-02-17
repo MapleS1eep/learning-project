@@ -1,12 +1,12 @@
 <template>
   <div class="child">
     <h3>子组件</h3>
-    <Grandson/>
+    <GrandChild v-bind="$attrs" />
   </div>
 </template>
 
 <script setup lang="ts" name="Child">
-import Grandson from "./Grandson.vue";
+import GrandChild from "./GrandChild.vue";
 import { ref, reactive, onMounted } from "vue"
 
 </script>
