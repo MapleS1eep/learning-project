@@ -38,5 +38,4 @@ npm run dev
 ```sh
 npm run build
 ```
-
-<!-- https://www.bilibili.com/video/BV1Za4y1r7KE/?p=58&spm_id_from=pageDriver&vd_source=8af54abb3c22a33227de944aca702d68 -->
+<!-- https://www.bilibili.com/video/BV1Za4y1r7KE -->
